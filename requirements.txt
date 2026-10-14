@@ -1,0 +1,18 @@
+# Chamadas HTTP à API
+requests>=2.31.0
+
+# Manipulação e transformação de dados
+pandas>=2.2.0
+
+# Gestão de variáveis de ambiente
+python-dotenv>=1.0.0
+
+# Base de Dados PostgreSQL & ORM
+SQLAlchemy>=2.0.0
+psycopg2-binary>=2.9.0
+
+# Qualidade e Testes
+pytest>=8.0.0
+
+# Dashboard Visual (utilizaremos na Fase 5)
+streamlit>=1.32.0
