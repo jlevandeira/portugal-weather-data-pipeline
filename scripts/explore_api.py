@@ -14,19 +14,16 @@ BASE_URL = "https://api.ipma.pt/open-data"
 
 def explorar_locais():
     url = f"{BASE_URL}/distrits-islands.json"
-    print(f"\n--- 1. A contactar endpoint de locais: {url} ---")
-    
+    print(f"\n--- 1. A contactar endpoint de locais: {url} ---")  
     # -------------------------------------------------------------------------
     # DESAFIO 1:
     # 1. Faz o pedido GET com a biblioteca requests.
     # 2. Verifica se o pedido correu bem (dica: response.raise_for_status()).
     # 3. Converte a resposta para um dicionário Python usando .json().
-    # -------------------------------------------------------------------------
-    
-    # TODO: Substitui os None pelo código correto
-    response = None  # faz o pedido get à url
-    # faz a verificação do estado HTTP aqui
-    dados = None     # extrai o json da resposta
+    # -------------------------------------------------------------------------   
+    response = requests.get(url, timeout=10)
+    response.raise_for_status()
+    dados = response.json()
     
     # A lista de cidades está dentro da chave 'data'
     locais = dados.get("data", [])
@@ -47,10 +44,9 @@ def explorar_previsao(global_id_local: int):
     # DESAFIO 2:
     # Faz o mesmo para a previsão diária da cidade indicada.
     # -------------------------------------------------------------------------
-    
-    # TODO: Faz o pedido, validação e extração do JSON
-    response = None
-    dados = None
+    response = requests.get(url)
+    response.raise_for_status()
+    dados = response.json()
     
     previsoes = dados.get("data", [])
     data_atualizacao = dados.get("dataUpdate", "Desconhecida")
@@ -65,7 +61,6 @@ def explorar_previsao(global_id_local: int):
 if __name__ == "__main__":
     try:
         locais = explorar_locais()
-        
         # Lisboa tem o globalIdLocal = 1110600
         # Porto tem o globalIdLocal = 1131200
         explorar_previsao(global_id_local=1110600)

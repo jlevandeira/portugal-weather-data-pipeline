@@ -26,3 +26,7 @@ pgdata/
 .pytest_cache/
 .coverage
 htmlcov/
+
+# Cábula pessoal de estudo (não versionar publicamente)
+LEARNING.md
+
