@@ -30,3 +30,8 @@ htmlcov/
 # Cábula pessoal de estudo (não versionar publicamente)
 LEARNING.md
 
+# Ficheiros de Log da Pipeline
+logs/
+*.log
+
+
